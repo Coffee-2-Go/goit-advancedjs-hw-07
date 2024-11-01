@@ -1,24 +1,23 @@
 /*
-  Ваше завдання полягатиме у створенні двох класів – Employee та Manager.
+  Your task will be to create two classes – Employee and Manager.
 
-  Клас Employee повинен включати:
+  The Employee class should include:
 
-  властивість name, яка буде доступна всім.
-  властивість department, яка буде доступна лише всередині класу Employee.
-  salary, яке буде доступне лише всередині класу Employee та його підкласів.
+  - a name property, which will be accessible to everyone.
+  - a department property, which will be accessible only within the Employee class.
+  - a salary property, which will be accessible only within the Employee class and its subclasses.
 
+  The Manager class should be a subclass of the Employee class.
 
-  Клас Manager повинен бути підклас класу Employee
-
-  Необхідно реалізувати в класі Manager конструктор, який викликатиме конструктор суперкласу та збільшуватиме salary на 10000.
+  You need to implement a constructor in the Manager class that will call the superclass constructor and increment salary by 10000.
 
 */
 
 class Employee {
-  // Заповніть модифікатори доступу
-  name: string;
-  department: string;
-  salary: number;
+  // Fill in the access modifiers
+  public name: string;
+  private department: string;
+  protected salary: number;
 
   constructor(name: string, department: string, salary: number) {
     this.name = name;
@@ -32,8 +31,9 @@ class Employee {
 }
 
 class Manager extends Employee {
-  // Реалізуйте конструктор та збільшіть salary на 10000
+  constructor(name: string, department: string, salary: number) {
+    super(name, department, salary + 10000);
+  }
 }
-
 
 export {};
